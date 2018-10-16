@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizAppTopicIntials</string>
+    <string name="question1">Do 2 mini shield’s gets you up to 75% shield?</string>
+    <string name="question2">You can carry more than 2 50 sheilds?</string>
+    <string name="question3">Their is 1 day left until season 6?</string>
+    <string name="question4">Max bullets for ARs is 1k?</string>
+    <string name="question5">You can survive fall damage from max height?</string>
+    <string name="False">False</string>
+    <string name="True">True</string>
+    <string name="Right">Right</string>
+    <string name="Wrong">Wrong</string>
+    <string name="Enter">Enter</string>
+</resources>
