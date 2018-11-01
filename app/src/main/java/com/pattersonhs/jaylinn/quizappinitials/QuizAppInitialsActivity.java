@@ -17,7 +17,10 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
     TextView wrong;
     Button Enter;
     int toastmessageID;
-    int questionArray;
+    Question[] questionArray;
+    Question currentQuestion;
+    int questionArrayIndex;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +29,16 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
         falseButton = (RadioButton) findViewById(R.id.False);
         question = (TextView) findViewById(R.id.question);
         Enter = (Button) findViewById(R.id.Enter);
+        questionArrayIndex = 0;
 
+        questionArray = new Question[5];
+        questionArray[0] = new Question("2 minis get's you to 75% sheild?", false);
+        questionArray[1] = new Question ("You can carry more than 2 50 sheilds?",true);
+        questionArray[2] = new Question ("Their is 1 day left until season 6?", false);
+        questionArray[3] = new Question ("Max bullets for ar's is 1k?", true);
+        questionArray[4] = new Question ("You can survive fall damage from max height?", false);
+
+        currentQuestion = questionArray[questionArrayIndex];
 
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +69,7 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
                     toastmessageID = R.string.Wrong;
                 }
                 Toast.makeText(QuizAppInitialsActivity.this,  "incorrect", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
