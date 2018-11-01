@@ -7,33 +7,59 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class QuizAppInitialsActivity extends AppCompatActivity {
-    RadioButton True;
-    RadioButton False;
+    RadioButton trueButton;
+    RadioButton falseButton;
     TextView question;
     TextView right;
     TextView wrong;
     Button Enter;
+    int toastmessageID;
+    int questionArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_app_initials);
-        true = (RadioButton) findViewById(R.id.true);
-        false = (RadioButton) findViewById(R.id.false);
+        trueButton = (RadioButton) findViewById(R.id.True);
+        falseButton = (RadioButton) findViewById(R.id.False);
         question = (TextView) findViewById(R.id.question);
-        right = (TextView) findViewById(R.id.right);
-        wrong = (TextView) findViewById(R.id.Wrong);
         Enter = (Button) findViewById(R.id.Enter);
-    }
-    //public void onClick (View view){
-        //Intent scoreintent1 = new Intent ( packageContext; MainActivity.this, Main2Activity.class);
-        //startActivity(scoreIntent1);
 
-    //public void onClick2 (View view){
-        //Intent scoreintent2 = new Intent ( packageContext; MainActivity.this, Main3Activity.class);
-        //startActivity(scoreIntent2);
-        public Question[] questionsArray = new Question[5];
-        public Question[0] questionsArray = new Question1;
+
+        trueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean givenAnswer=true;
+                if (givenAnswer == true)
+                {
+                    toastmessageID = R.string.Right;
+                }
+                else
+                {
+                    toastmessageID = R.string.Wrong;
+                }
+                Toast.makeText(QuizAppInitialsActivity.this,  "correct", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        falseButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                boolean givenAnswer=false;
+                if (givenAnswer == false)
+                {
+                    toastmessageID = R.string.Right;
+                }
+                else
+                {
+                    toastmessageID = R.string.Wrong;
+                }
+                Toast.makeText(QuizAppInitialsActivity.this,  "incorrect", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
+
+

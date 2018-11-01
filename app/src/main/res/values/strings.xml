@@ -10,4 +10,5 @@
     <string name="Right">Right</string>
     <string name="Wrong">Wrong</string>
     <string name="Enter">Enter</string>
+    <string name="Toast">Toast</string>
 </resources>

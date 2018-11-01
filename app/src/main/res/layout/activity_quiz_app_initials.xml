@@ -7,18 +7,6 @@
 
 
     <TextView
-        android:id="@+id/Right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Right" />
-
-    <TextView
-        android:id="@+id/Wrong"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Wrong" />
-
-    <TextView
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,13 +21,13 @@
 
 
         <RadioButton
-            android:id="@+id/Radio1"
+            android:id="@+id/True"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/True" />
 
         <RadioButton
-            android:id="@+id/Radio2"
+            android:id="@+id/False"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/False" />
