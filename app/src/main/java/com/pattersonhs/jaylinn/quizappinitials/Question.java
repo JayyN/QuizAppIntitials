@@ -2,7 +2,7 @@ package com.pattersonhs.jaylinn.quizappinitials;
 
 import android.widget.EditText;
 
-public class Question {
+    public class Question {
     private String qText;
     private boolean correctAnswer;
 
