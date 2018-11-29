@@ -1,5 +1,6 @@
 package com.pattersonhs.jaylinn.quizappinitials;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
     Question[] questionArray;
     Question currentQuestion;
     int questionArrayIndex;
+    int score;
+    boolean givenAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,8 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
         question = (TextView) findViewById(R.id.question);
         Enter = (Button) findViewById(R.id.Enter);
         questionArrayIndex = 0;
+        score = 0;
+        givenAnswer = false;
 
         questionArray = new Question[5];
         questionArray[0] = new Question("2 minis get's you to 75% sheild?", false);
@@ -43,8 +48,8 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean givenAnswer=true;
-                if (givenAnswer == true)
+                 givenAnswer=true;
+                if (givenAnswer == currentQuestion.isCorrectAnswer())
                 {
                     toastmessageID = R.string.Right;
                 }
@@ -52,15 +57,15 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
                 {
                     toastmessageID = R.string.Wrong;
                 }
-                Toast.makeText(QuizAppInitialsActivity.this,  "correct", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizAppInitialsActivity.this,  toastmessageID, Toast.LENGTH_SHORT).show();
             }
         });
 
         falseButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                boolean givenAnswer=false;
-                if (givenAnswer == false)
+                givenAnswer=false;
+                if (givenAnswer == currentQuestion.isCorrectAnswer())
                 {
                     toastmessageID = R.string.Right;
                 }
@@ -68,7 +73,34 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
                 {
                     toastmessageID = R.string.Wrong;
                 }
-                Toast.makeText(QuizAppInitialsActivity.this,  "incorrect", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QuizAppInitialsActivity.this,  toastmessageID, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        Enter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (givenAnswer == currentQuestion.isCorrectAnswer())
+                {
+                    score +=1;
+                }
+                else
+                {
+                    //score -=1;
+                }
+                if (questionArrayIndex < 4)
+                {
+                    questionArrayIndex +=1;
+                    currentQuestion = questionArray[questionArrayIndex];
+                    question.setText(currentQuestion.getQText());
+                }
+                else
+                {
+                    Intent ScoreIntent = new Intent(QuizAppInitialsActivity.this, ScoreActivity.class);
+                    ScoreIntent.putExtra("Add", score);
+                    startActivity(ScoreIntent);
+                }
 
             }
         });
