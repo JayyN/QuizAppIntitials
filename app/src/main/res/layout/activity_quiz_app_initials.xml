@@ -50,6 +50,7 @@
         android:id="@+id/Minisheild"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/minishield"/>
+        android:src="@drawable/minishield" />
+
 
 </LinearLayout>

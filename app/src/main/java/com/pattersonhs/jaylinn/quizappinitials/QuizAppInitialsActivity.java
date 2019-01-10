@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
     int questionArrayIndex;
     int score;
     boolean givenAnswer;
+    ImageView minisheild;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public class QuizAppInitialsActivity extends AppCompatActivity {
         falseButton = (RadioButton) findViewById(R.id.False);
         question = (TextView) findViewById(R.id.question);
         Enter = (Button) findViewById(R.id.Enter);
+        minisheild = (ImageView) findViewById(R.id.Minisheild);
         questionArrayIndex = 0;
         score = 0;
         givenAnswer = false;
